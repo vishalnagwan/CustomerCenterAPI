@@ -1,0 +1,16 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.MemoryJoin" Version="0.8.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerCenter.Data\CustomerCenter.Data.csproj" />
+    <ProjectReference Include="..\CustomerCenter.Repositories.Abstractions\CustomerCenter.Repositories.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

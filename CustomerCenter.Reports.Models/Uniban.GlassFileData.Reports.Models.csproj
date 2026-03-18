@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <Target Name="PostBuild" AfterTargets="PostBuildEvent" Condition="'$(Configuration)' == 'Debug' And Exists('C:\Program Files (x86)\Progress\Telerik Reporting R2 2020\Report Designer')">
+    <Exec Command="copy $(OutDir)\$(ProjectName).dll &quot;C:\Program Files (x86)\Progress\Telerik Reporting R2 2020\Report Designer&quot;" />
+  </Target>
+
+</Project>

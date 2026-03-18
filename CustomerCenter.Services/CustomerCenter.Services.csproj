@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Xml.XPath.XmlDocument" Version="4.7.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerCenter.Data\CustomerCenter.Data.csproj" />
+    <ProjectReference Include="..\CustomerCenter.Repositories.Abstractions\CustomerCenter.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\CustomerCenter.Repositories\CustomerCenter.Repositories.csproj" />
+    <ProjectReference Include="..\CustomerCenter.Services.Abstractions\CustomerCenter.Abstractions.csproj" />
+  </ItemGroup>
+
+</Project>

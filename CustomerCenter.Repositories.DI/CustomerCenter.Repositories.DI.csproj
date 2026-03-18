@@ -1,0 +1,12 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\CustomerCenter.Repositories.Abstractions\CustomerCenter.Repositories.Abstractions.csproj" />
+    <ProjectReference Include="..\CustomerCenter.Repositories\CustomerCenter.Repositories.csproj" />
+  </ItemGroup>
+
+</Project>
