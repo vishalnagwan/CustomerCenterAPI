@@ -8,7 +8,7 @@ namespace CustomerCenter.Data.Migrations
     /// <inheritdoc />
     public partial class InitialCreate : Migration
     {
-        /// <inheritdoc />
+        /// <Data Migrations />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
