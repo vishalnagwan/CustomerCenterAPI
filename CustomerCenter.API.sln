@@ -1,6 +1,6 @@
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 18
-VisualStudioVersion = 18.3.11505.172
+# Visual Studio Version 17
+VisualStudioVersion = 17.14.37012.4 d17.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerCenter.API", "CustomerCenter.API\CustomerCenter.API.csproj", "{5679A036-2034-4C10-A628-667FFDD59D04}"
 EndProject
@@ -29,8 +29,6 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerCenter.Repositories.DI", "CustomerCenter.Repositories.DI\CustomerCenter.Repositories.DI.csproj", "{2B8949F2-A90E-43F1-9B01-94C0D5BDD6B2}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CustomerCenter.Data.DI", "CustomerCenter.Data.DI\CustomerCenter.Data.DI.csproj", "{D8918A43-84FE-4699-8AF4-FD91A1985938}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CustomerCenter.API.Tests", "CustomerCenter.API.Tests\CustomerCenter.API.Tests.csproj", "{74287898-4295-4979-8B81-BCC80970B3D9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -78,10 +76,6 @@ Global
 		{D8918A43-84FE-4699-8AF4-FD91A1985938}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8918A43-84FE-4699-8AF4-FD91A1985938}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8918A43-84FE-4699-8AF4-FD91A1985938}.Release|Any CPU.Build.0 = Release|Any CPU
-		{74287898-4295-4979-8B81-BCC80970B3D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{74287898-4295-4979-8B81-BCC80970B3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{74287898-4295-4979-8B81-BCC80970B3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{74287898-4295-4979-8B81-BCC80970B3D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
