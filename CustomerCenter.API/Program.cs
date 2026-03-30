@@ -6,6 +6,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Serilog;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,6 +38,15 @@ builder.Services.AddCors(options =>
                   .AllowAnyMethod();
         });
 });
+
+// Configure Serilog
+Log.Logger = new LoggerConfiguration()
+    .WriteTo.Console()
+    .WriteTo.File("Logs/log.txt", rollingInterval: RollingInterval.Day)
+    .CreateLogger();
+
+// Plug Serilog into the host
+builder.Host.UseSerilog();
 
 var app = builder.Build();
 

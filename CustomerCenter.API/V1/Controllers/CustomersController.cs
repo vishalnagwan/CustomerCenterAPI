@@ -1,11 +1,15 @@
-﻿using Castle.Core.Resource;
+﻿using Castle.Core.Logging;
+using Castle.Core.Resource;
 using CustomerCenter.API.V1.Models;
-using CustomerCenter.Domain.Data;
 using CustomerCenter.Domain;
+using CustomerCenter.Domain.Data;
 using CustomerCenter.Services.Abstractions;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
+using Microsoft.Extensions.Logging;
+using Serilog.Core;
+using System;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace CustomerCenter.API.Controllers;
 
@@ -14,6 +18,7 @@ namespace CustomerCenter.API.Controllers;
 public class CustomersController : ControllerBase
 {
     private readonly ICustomerService _service;
+    private ILogger<CustomersController> _logger;
 
     public CustomersController(ICustomerService service)
     {
@@ -55,29 +60,37 @@ public class CustomersController : ControllerBase
         return CreatedAtAction(nameof(GetById), new { id = created.Id }, created);
     }
 
-    [HttpPut("Update")]
-    public async Task<IActionResult> Update(int id, CustomerRequest dto)
+    [HttpPost("Update")]
+    public async Task<IActionResult> Update([FromBody] CustomerRequest dto)
     {
-        await _service.UpdateAsync(id, new Customer
+        try
         {
-            Id = id,
-            FirstName = dto.FirstName,
-            LastName = dto.LastName,
-            Email = dto.Email,
-            Phone = dto.Phone,
-            DateOfBirth = dto.DateOfBirth,
-            AddressLine1 = dto.AddressLine1,
-            AddressLine2 = dto.AddressLine2,
-            City = dto.City,
-            State = dto.State,
-            PostalCode = dto.PostalCode,
-            Country = dto.Country,
-            IsActive = dto.IsActive,
-            LoyaltyNumber = dto.LoyaltyNumber,
-            Notes = dto.Notes
-        });
-
-        return Ok("Updated successfully");
+            await _service.UpdateAsync(new Customer
+            {
+                Id = dto.Id,
+                FirstName = dto.FirstName,
+                LastName = dto.LastName,
+                Email = dto.Email,
+                Phone = dto.Phone,
+                DateOfBirth = dto.DateOfBirth,
+                AddressLine1 = dto.AddressLine1,
+                AddressLine2 = dto.AddressLine2,
+                City = dto.City,
+                State = dto.State,
+                PostalCode = dto.PostalCode,
+                Country = dto.Country,
+                IsActive = dto.IsActive,
+                LoyaltyNumber = dto.LoyaltyNumber,
+                Notes = dto.Notes
+            });
+            _logger.LogWarning("Updated successfully");
+            return Ok("Updated successfully");
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Update failed");
+            return StatusCode(500, "Update failed");
+        }
     }
 
     [HttpDelete("Delete")]

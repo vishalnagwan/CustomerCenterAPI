@@ -21,9 +21,9 @@ public class CustomerService : ICustomerService
     public Task<Customer> CreateAsync(Customer customer)
         => _repo.AddAsync(customer);
 
-    public async Task UpdateAsync(int id, Customer customer)
+    public async Task UpdateAsync(Customer customer)
     {
-        var existing = await _repo.GetByIdAsync(id);
+        var existing = await _repo.GetByIdAsync(customer.Id);
         if (existing is null) return;
 
         existing.FirstName = customer.FirstName;
